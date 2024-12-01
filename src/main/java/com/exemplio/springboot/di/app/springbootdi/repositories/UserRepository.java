@@ -1,8 +1,9 @@
 package com.exemplio.springboot.di.app.springbootdi.repositories;
 
 import com.exemplio.springboot.di.app.springbootdi.entity.Users;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface UserRepository extends JpaRepository<Users, Long> {
+@Repository
+public interface UserRepository extends CrudRepository<Users, Long> {
 }

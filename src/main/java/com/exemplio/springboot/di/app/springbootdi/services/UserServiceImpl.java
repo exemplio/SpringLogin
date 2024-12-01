@@ -2,30 +2,29 @@ package com.exemplio.springboot.di.app.springbootdi.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exemplio.springboot.di.app.springbootdi.entity.Users;
 import com.exemplio.springboot.di.app.springbootdi.repositories.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    
+
+    @Autowired
     private UserRepository repository;
 
-    public UserServiceImpl(UserRepository repository) {
-        this.repository = repository;
-    }
-
+    @Transactional(readOnly = true)
     @Override
     public List<Users> findAll() {
-        return repository.findAll();
+        return (List<Users>) repository.findAll();
     }
 
     @Override
     public Users findById(Long id) {
-        return repository.getOne(id);
+        return null;
     }
-
 
 
 }
