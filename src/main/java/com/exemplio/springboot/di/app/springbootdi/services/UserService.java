@@ -9,4 +9,6 @@ public interface UserService {
     List<Users> findAll();
 
     Users findById(Long id);
+
+    Users addUser(Users user);
 }

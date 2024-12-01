@@ -26,5 +26,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Transactional
+    @Override
+    public Users addUser(Users user) {
+        return repository.save(user);
+    }
+
 
 }
