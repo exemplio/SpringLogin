@@ -23,7 +23,12 @@ public class SomeController {
         return service.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/sign_in")
+    public ResponseEntity<Users> sessionLogin(@RequestBody Users user){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.addUser(user));
+    }
+
+    @PostMapping("/sign_up")
     public ResponseEntity<Users> addUsers(@RequestBody Users user){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.addUser(user));
     }

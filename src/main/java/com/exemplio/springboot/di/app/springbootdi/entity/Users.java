@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class Users {
 
     @Id
@@ -26,7 +26,6 @@ public class Users {
         this.email = email;
         this.dni = dni;
     }
-
 
     public Long getId() {
         return id;
@@ -68,4 +67,3 @@ public class Users {
         this.email = email;
     }
 }
-
