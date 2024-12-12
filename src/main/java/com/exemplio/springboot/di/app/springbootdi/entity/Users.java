@@ -2,8 +2,6 @@ package com.exemplio.springboot.di.app.springbootdi.entity;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 @Entity
 @Table(name = "users")
 public class Users {
@@ -11,20 +9,18 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int dni;
-    private String name;
-    private String lastname;
+    private String username;
     private String email;
+    private String password;
 
     public Users() {
     }
 
-    public Users(Long id, String name, String lastname, String email, Integer dni) {
+    public Users(Long id, String username, String email, String password) {
         this.id = id;
-        this.name = name;
-        this.lastname = lastname;
+        this.username = username;
         this.email = email;
-        this.dni = dni;
+        this.password = password;
     }
 
     public Long getId() {
@@ -35,28 +31,12 @@ public class Users {
         this.id = id;
     }
 
-    public int getDni() {
-        return dni;
+    public String getUsername() {
+        return username;
     }
 
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -65,5 +45,13 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

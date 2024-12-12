@@ -25,7 +25,8 @@ public class SomeController {
 
     @PostMapping("/sign_in")
     public ResponseEntity<Users> sessionLogin(@RequestBody Users user){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.addUser(user));
+        return ResponseEntity.status(HttpStatus.OK).body(service.findById(user.getId())
+                .orElseThrow(() -> new RuntimeException("User not found")));
     }
 
     @PostMapping("/sign_up")
@@ -33,9 +34,9 @@ public class SomeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.addUser(user));
     }
     
-    @GetMapping("/{id}")
-    public Users show(@PathVariable Long id) {
-        return service.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Users show(@PathVariable Long id) {
+//        return service.findById(id);
+//    }
 
 }

@@ -1,6 +1,7 @@
 package com.exemplio.springboot.di.app.springbootdi.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Users findById(Long id) {
-        return null;
+    public Optional<Users> findById(Long id) {
+        return repository.findById(id);
     }
 
     @Transactional
