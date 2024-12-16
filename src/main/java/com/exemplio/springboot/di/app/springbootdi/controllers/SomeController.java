@@ -24,14 +24,18 @@ public class SomeController {
     }
 
     @PostMapping("/sign_in")
-    public ResponseEntity<Users> sessionLogin(@RequestBody Users user){
-        return ResponseEntity.status(HttpStatus.OK).body(service.findById(user.getId())
-                .orElseThrow(() -> new RuntimeException("User not found")));
+    public ResponseEntity<Object> sessionLogin(@RequestBody Users user){
+        return ResponseEntity.status(HttpStatus.OK).body(service.checkCredentials(user));
+    }
+
+    @PostMapping("/get_all")
+    public ResponseEntity<List<Users>> getAll(@RequestBody Users user){
+        return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
 
     @PostMapping("/sign_up")
     public ResponseEntity<Users> addUsers(@RequestBody Users user){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.addUser(user));
+        return ResponseEntity.status(HttpStatus.OK).body(service.addUser(user));
     }
     
 //    @GetMapping("/{id}")
